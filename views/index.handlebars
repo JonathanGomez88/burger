@@ -4,8 +4,8 @@
 
 <ul>
   {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devored=false}}
+    {{#unless this.devoured}}
+     <div>{{this.burger_name}}</div><button id={{this.id}} class="change-devour" data-id={{this.id}}>Devour It</button>
     {{/unless}}
   {{/each}}
 </ul>
@@ -13,9 +13,9 @@
 <h2>Burgers that are devoured</h2>
 
 <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> burgers/burger-block devoured=false}}
+  {{#each burgers}}
+    {{#if this.devoured}}
+    <div>{{this.burger_name}}</div>
     {{/if}}
   {{/each}}
 </ul>
@@ -29,5 +29,7 @@
   </div>
 
 
-  <button type="submit">Add Burger</button>
+
 </form>
+
+  <button id="submit-button">Add Burger</button>

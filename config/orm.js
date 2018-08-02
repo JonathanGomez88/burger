@@ -1,11 +1,24 @@
 // Import MySQL connection.
-var connection = require("../config/connection.js");
+var connection = require("./connection");
 
 function printQuestionMarks(num) {
   var arr = [];
 
   for (var i = 0; i < num; i++) {
     arr.push("?");
+  }
+
+  return arr.toString();
+}
+
+function objToSql(ob) {
+
+  var arr = [];
+
+  for (var key in ob) {
+    if (ob[key]) {
+      arr.push(key + "=" + ob[key]);
+    }
   }
 
   return arr.toString();
@@ -45,6 +58,8 @@ var orm = {
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
+
+    console.log("this is our condition: ", condition);
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";

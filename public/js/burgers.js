@@ -1,24 +1,35 @@
 
 $(function() {
     $(".change-devour").on("click", function(event) {
+
+      console.log($(this));
         var devoured = $(this).data("devoured")
-        devoured = true
+        devoured = true;
+
+        var id = $(this).data("id");
+
+        var myObj = {
+          devoured,
+          id
+        }
+
+        $.ajax("/api/burgers/" + id, {
+          type: "PUT",
+          data: myObj
+        }).then(
+          function() {
+            console.log("changed devour to", true);
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
       });
   
       // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
-        type: "PUT",
-        data: devoured
-      }).then(
-        function() {
-          console.log("changed devour to", true);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
+  
     });
   
-    $(".create-form").on("submit", function(event) {
+    $("#submit-button").on("click", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   

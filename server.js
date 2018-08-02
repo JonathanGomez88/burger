@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyparser = require("body-parser");
+var path = require("path")
 
 var PORT = process.env.PORT || 8080;
 
@@ -16,7 +17,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }))
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgers_controller.js");
+var routes = require("./controllers/burgers_controller");
 
 app.use(routes);
 

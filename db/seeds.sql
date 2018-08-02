@@ -1,11 +1,11 @@
 INSERT INTO burgers (burger_name)
-VALUES ("Big Mac");
+VALUES ("Big Mac", FALSE);
 
 INSERT INTO burgers (burger_name)
-VALUES ("Whooper");
+VALUES ("Whooper", FALSE);
 
 INSERT INTO burgers (burger_name)
-VALUES ("Quarter Pounder");
+VALUES ("Quarter Pounder" FALSE);
 
 INSERT INTO burgers (burger_name)
-VALUES ("BBQ Bacon");
+VALUES ("BBQ Bacon", FALSE);
